@@ -1,0 +1,36 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block content %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mt-5">
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <img class="card-img" src="{% static 'img/meb1.png' %}">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="card-body">
+                            {% if user.is_authenticated %}
+                                <h2 class="card-title">
+                                    <p class="text-danger d-inline ">Hoş</p>
+                                    <p class="text-warning d-inline"> geldin</p>
+                                    <p class="text-primary d-inline"> {{ user.username }}</p>
+
+                                </h2>
+                            {% else %}
+                                <h4 class="card-title"> Lütfen İlk önce giriş yapınız</h4>
+                            {% endif %}
+                            <p class="card-text">
+
+
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

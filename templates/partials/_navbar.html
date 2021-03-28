@@ -1,0 +1,56 @@
+<header>
+    <div class="navbar navbar-expand-sm  navbar-dark bg-primary">
+        <div class="container">
+            <a href="{% url 'index' %}" class="navbar-brand "> Okul Uygulaması</a>
+            <ul class="navbar-nav mr-auto">
+                <li
+                        class="nav-item active">
+                    <a href="{% url 'admin:index' %}" class="nav-link">Yönetim Sayfası</a>
+                </li>
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+
+                        <a href="#" class="nav-link"> Hoş Geldin {{ user.username }}
+
+                        </a>
+                    </li>
+                    <li class="nav-item">
+
+                        <a href="{% url 'logout' %}" class="nav-link"> Çıkış Yap
+
+                        </a>
+                    </li>
+
+
+                {% else %}
+                    <li
+                            {% if "login" in request.path %}
+                                class="nav-item active"
+                            {% else %}
+                                class="nav-item"
+
+                            {% endif %}
+                    >
+                        <a href="{% url 'login' %}" class="nav-link">Giriş</a>
+                    </li>
+                    <li
+                            {% if "register" in request.path %}
+                                class="nav-item active"
+                            {% else %}
+                                class="nav-item"
+
+                            {% endif %}>
+                        <a href="{% url 'register' %}" class="nav-link">Kayıt Ol</a>
+                    </li>
+                {% endif %}
+            </ul>
+
+
+        </div>
+
+
+    </div>
+</header>
